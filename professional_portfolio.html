@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linda Okwuego - HR Professional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f8fafc 50%, #f1f5f9 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .hero-content h1 .last-name {
+            color: #c05299;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #c05299;
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #c05299;
+            border: 2px solid #c05299;
+        }
+
+        .btn-tertiary {
+            background: #4a5568;
+            color: white;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(192, 82, 153, 0.25);
+        }
+
+        .btn-secondary:hover {
+            background: #c05299;
+            color: white;
+        }
+
+        .btn-tertiary:hover {
+            background: #2d3748;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #c05299;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c05299, #e879f9);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .profile-card h3 {
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .profile-card p {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: #c05299;
+            width: 16px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .about-text .highlight {
+            color: #c05299;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(192, 82, 153, 0.1);
+            color: #c05299;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(192, 82, 153, 0.2);
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 6rem 0;
+        }
+
+        .experience h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #c05299;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            color: #1a202c;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            color: #c05299;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: #4a5568;
+            font-size: 0.9rem;
+            background: #f7fafc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+        }
+
+        .experience-description {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .achievements {
+            margin-top: 1.5rem;
+        }
+
+        .achievements h4 {
+            color: #1a202c;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #c05299;
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .education h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .education-card h3 {
+            color: #c05299;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card h4 {
+            color: #1a202c;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-card .year {
+            color: #4a5568;
+            font-size: 0.85rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 6rem 0;
+        }
+
+        .certifications h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            color: #1a202c;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .cert-link {
+            background: #c05299;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover {
+            background: #a04086;
+            transform: translateY(-1px);
+        }
+
+        .cert-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .cert-topic {
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #4a5568;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                position: static;
+                margin: 2rem auto;
+                width: fit-content;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-card {
+                position: static;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section spacing */
+        section {
+            scroll-margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Linda <span class="last-name">Okwuego</span></h1>
+                    <p class="hero-subtitle">Human Resources Professional | AI-Driven HR Innovator</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:lindaokwuego@yahoo.com?subject=Hello Linda - Portfolio Contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/lindaok/" class="btn btn-secondary" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://docs.google.com/document/d/1pUkkfRQklpX9I1N4bZFXetu9M-yYPXHQ/export?format=pdf" class="btn btn-tertiary" target="_blank">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-card">
+                        <div class="profile-img">LO</div>
+                        <h3>HR Professional</h3>
+                        <p>Lagos, Nigeria</p>
+                        <p>Available for new opportunities</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>+234 902 484 3759</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>lindaokwuego@yahoo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Lagos, Nigeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>About <span class="highlight">Me</span></h2>
+                        <p>A detail-oriented and proactive Human Resources professional with a strong background in managing HR administrative functions, employee wellbeing, and vendor relations. Skilled in payroll processing, leave management, and enhancing employee experience, with a proven ability to streamline operations and ensure compliance with company policies.</p>
+                        <p>Adept at problem-solving, multitasking, and fostering positive employee relationships to support a productive and engaging work environment. Passionate about leveraging artificial intelligence to optimize HR processes, improve decision-making, and drive innovation in the workplace.</p>
+                        <div class="skills">
+                            <h3>Key Skills</h3>
+                            <div class="skills-grid">
+                                <span class="skill-tag">Compensation & Benefits</span>
+                                <span class="skill-tag">Employee Experience</span>
+                                <span class="skill-tag">Vendor Management</span>
+                                <span class="skill-tag">MS Office Suite</span>
+                                <span class="skill-tag">Communication Skills</span>
+                                <span class="skill-tag">AI in HR</span>
+                                <span class="skill-tag">Payroll Processing</span>
+                                <span class="skill-tag">Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Team Member, HR Shared Services</div>
+                            <div class="experience-company">Titan Trust Bank</div>
+                        </div>
+                        <div class="experience-date">November 2023 - Present</div>
+                    </div>
+                    <div class="experience-description">
+                        Leading HR administrative functions for over 104 outsourced staff, managing comprehensive payroll processes, and driving employee experience initiatives while ensuring compliance with regulatory requirements.
+                    </div>
+                    <div class="achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Coordinated the 2025 annual health check-up for all outsourced staff, ensuring full participation and compliance with health and safety standards</li>
+                            <li>Successfully participated in NSITF audit preparation, leading to confirmation of compliance from bank's inception (February 2019) to December 2024</li>
+                            <li>Contributed to implementing bank-wide salary review for all outsourced staff in 2024</li>
+                            <li>Improved new employee experience by introducing the outsource staff FAQ document</li>
+                            <li>Implemented total HMO change for outsourced staff in 2024 to improve healthcare access and employee wellbeing</li>
+                            <li>Contributed to the Titan Trust Bank 2024 team bonding event nationwide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="container">
+                <h2>Education & Qualifications</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>MA Human Resources Management & Development</h3>
+                        <h4>Middlesex University, UK</h4>
+                        <div class="year">2021</div>
+                    </div>
+                    <div class="education-card">
+                        <h3>BSc Mass Communication</h3>
+                        <h4>Baze University, Abuja</h4>
+                        <div class="year">2019</div>
+                    </div>
+                    <div class="education-card">
+                        <h3>Associate Member (ACIPD)</h3>
+                        <h4>Chartered Institute of Personnel and Development, UK</h4>
+                        <div class="year">2022</div>
+                    </div>
+                    <div class="education-card">
+                        <h3>Ontario Secondary School Diploma</h3>
+                        <h4>Great Lakes College of Toronto, Canada</h4>
+                        <div class="year">2014</div>
+                    </div>
+                    <div class="education-card">
+                        <h3>Certificate of National Service</h3>
+                        <h4>National Youth Service Corps</h4>
+                        <div class="year">2023</div>
+                    </div>
+                    <div class="education-card">
+                        <h3>Secondary School Leaving Certificate</h3>
+                        <h4>Holy Child College, Lagos</h4>
+                        <div class="year">2010</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="certifications">
+            <div class="container">
+                <h2>Certifications & Training</h2>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-title">AI Workplace Proficiency Certification</div>
+                        <a href="https://education.superhuman.ai/certificates/ibjfee3rtm" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+                    </div>
+                    <div>Superhuman AI Academy - 2025</div>
+                    <div class="cert-topics">
+                        <span class="cert-topic">Data Analysis with ChatGPT</span>
+                        <span class="cert-topic">Prompt Engineering</span>
+                        <span class="cert-topic">AI for Recruitment</span>
+                        <span class="cert-topic">AI for Research & Reports</span>
+                        <span class="cert-topic">AI for Presentations</span>
+                    </div>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-title">Digital Transformation and Sustainable Development</div>
+                        <div class="cert-link">2024</div>
+                    </div>
+                    <div>Chartered Institute of Bankers of Nigeria (CIBN)</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-title">Human Resources Management & Payroll</div>
+                        <div class="cert-link">2024</div>
+                    </div>
+                    <div>Kendor Academy</div>
+                    <div class="cert-topics">
+                        <span class="cert-topic">HR Management Introduction</span>
+                        <span class="cert-topic">Nigerian Payroll Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p>Ready to discuss HR innovation and opportunities? I'd love to hear from you.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:lindaokwuego@yahoo.com?subject=Hello Linda - Portfolio Contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/lindaok/" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // Download CV function - no longer needed since we're using direct Google Drive link
+        // function downloadCV() removed
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.experience-card, .education-card, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
